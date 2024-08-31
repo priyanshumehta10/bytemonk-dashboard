@@ -14,7 +14,7 @@ const DropdownFilter = ({
     <Select
       placeholder={placeholder}
       onChange={onChange}
-      style={{ width: "200px" }}
+      style={{ width: "180px" }}
       value={value}
     >
       {includeCut && <Option value="cut">All</Option>}

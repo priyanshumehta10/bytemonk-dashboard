@@ -59,10 +59,10 @@ const TableView = () => {
   ];
 
   return (
-    <div className="p-5 bg-gray-100">
+    <div className="p-5 bg-gray-100 relative">
       {/* Filter Section */}
-      <div className="mb-4 flex flex-wrap justify-between gap-4">
-        <div className="flex flex-col w-full md:w-auto">
+      <div className="absolute top-0 left-0 right-0 flex flex-row md:justify-between  md:gap-4 p-4">
+        <div className="flex flex-col w-[40%] mr-9">
           <label className="mb-2 text-sm font-medium">Filter by User</label>
           <DropdownFilter
             options={users}
@@ -72,7 +72,7 @@ const TableView = () => {
             value={selectedUser}
           />
         </div>
-        <div className="flex flex-col w-full md:w-auto">
+        <div className="flex flex-col w-[40%] md:w-auto ">
           <label className="mb-2 text-sm font-medium">Filter by Category</label>
           <DropdownFilter
             options={categories}
@@ -86,11 +86,11 @@ const TableView = () => {
 
       {/* Loading Spinner */}
       {loading ? (
-        <div className="flex justify-center items-center h-60">
+        <div className="flex justify-center items-center h-60 mt-20">
           <Spin size="large" />
         </div>
       ) : (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto mt-20">
           <Table
             dataSource={currentData}
             columns={columns}

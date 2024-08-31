@@ -91,70 +91,69 @@ const PieChartView = () => {
 
   return (
     <div className="p-4 md:p-5 bg-gray-100">
-      {/* Filter Section */}
-      <Card
-        className="mb-5 p-4 rounded-lg bg-white shadow-md"
-        bodyStyle={{ padding: "20px" }}
-      >
-        <div className="flex flex-col md:flex-row justify-between gap-4 mb-5">
-          <div className="flex flex-col w-full md:w-auto">
-            <label className="mb-2 text-sm font-medium">Filter by User</label>
-            <DropdownFilter
-              options={users}
-              onChange={handleUserFilter}
-              placeholder="Select User"
-              includeCut={true}
-              value={selectedUser}
-              className="w-full md:w-auto"
-            />
-          </div>
-          <div className="flex flex-col w-full md:w-auto">
-            <label className="mb-2 text-sm font-medium">
-              Filter by Category
-            </label>
-            <DropdownFilter
-              options={categories}
-              onChange={handleCategoryFilter}
-              placeholder="Select Category"
-              includeCut={true}
-              value={selectedCategory}
-              className="w-full md:w-auto"
-            />
-          </div>
+    {/* Filter Section */}
+    <Card
+      className="mb-5 p-7 rounded-lg bg-white shadow-md"
+      bodyStyle={{ padding: "20px" }}
+    >
+      <div className="absolute top-0 left-0 right-0 flex flex-row md:justify-between  md:gap-4 p-4">
+        <div className="flex flex-col w-[40%] ml-4 mr-9">
+          <label className="mb-2 text-sm font-medium">Filter by User</label>
+          <DropdownFilter
+            options={users}
+            onChange={handleUserFilter}
+            placeholder="Select User"
+            includeCut={true}
+            value={selectedUser}
+            className="w-full"
+          />
         </div>
-      </Card>
-      {loading ? (
-        <div className="flex justify-center items-center h-60">
-          <Spin size="large" />
+        <div className="flex flex-col w-[40%] md:w-auto">
+          <label className="mb-2 text-sm font-medium">
+            Filter by Category
+          </label>
+          <DropdownFilter
+            options={categories}
+            onChange={handleCategoryFilter}
+            placeholder="Select Category"
+            includeCut={true}
+            value={selectedCategory}
+            className="w-full"
+          />
         </div>
-      ) : (
-        <div className="flex flex-col md:flex-row gap-6 justify-center overflow-hidden">
-          <div className="flex flex-col w-full md:w-1/2 lg:w-1/2 overflow-hidden">
-            <Card
-              title="Breaches by Category"
-              className="w-full p-4 bg-white shadow-md"
-              bodyStyle={{ padding: "0" }}
-            >
-              <div className="h-80 w-full flex justify-center items-center overflow-hidden">
-                <Pie {...pieConfig} data={categoryData} />
-              </div>
-            </Card>
-          </div>
-          <div className="flex flex-col w-full md:w-1/2 lg:w-1/2 overflow-hidden">
-            <Card
-              title="Breaches by User"
-              className="w-full p-4 text-center bg-white shadow-md"
-              bodyStyle={{ padding: "0" }}
-            >
-              <div className="h-80 w-full flex justify-center items-center overflow-hidden">
-                <Pie {...pieConfig} data={userData} />
-              </div>
-            </Card>
-          </div>
+      </div>
+    </Card>
+    {loading ? (
+      <div className="flex justify-center items-center h-60">
+        <Spin size="large" />
+      </div>
+    ) : (
+      <div className="flex flex-col md:flex-row gap-6 justify-center overflow-hidden">
+        <div className="flex flex-col w-full md:w-1/2 lg:w-1/2 overflow-hidden">
+          <Card
+            title="Breaches by Category"
+            className="w-full p-4 bg-white shadow-md"
+            bodyStyle={{ padding: "0" }}
+          >
+            <div className="h-80 w-full flex justify-center items-center overflow-hidden">
+              <Pie {...pieConfig} data={categoryData} />
+            </div>
+          </Card>
         </div>
-      )}
-    </div>
-  );
+        <div className="flex flex-col w-full md:w-1/2 lg:w-1/2 overflow-hidden">
+          <Card
+            title="Breaches by User"
+            className="w-full p-4 text-center bg-white shadow-md"
+            bodyStyle={{ padding: "0" }}
+          >
+            <div className="h-80 w-full flex justify-center items-center overflow-hidden">
+              <Pie {...pieConfig} data={userData} />
+            </div>
+          </Card>
+        </div>
+      </div>
+    )}
+  </div>
+);
 };
-
 export default PieChartView;
