@@ -11,8 +11,8 @@ import {
 
 const TableView = () => {
   const dispatch = useDispatch();
-  const [selectedUser, setSelectedUser] = useState("cut");
-  const [selectedCategory, setSelectedCategory] = useState("cut");
+  const [selectedUser, setSelectedUser] = useState(undefined);
+  const [selectedCategory, setSelectedCategory] = useState(undefined);
   const { data, loading, users, categories, filteredData } = useSelector(
     (state) => state.breaches
   );
@@ -23,7 +23,7 @@ const TableView = () => {
 
   const handleUserFilter = (value) => {
     setSelectedUser(value);
-    setSelectedCategory(undefined);
+    setSelectedCategory("cut");
     if (value === "cut") {
       dispatch(filterByUser(""));
     } else {
@@ -33,7 +33,7 @@ const TableView = () => {
 
   const handleCategoryFilter = (value) => {
     setSelectedCategory(value);
-    setSelectedUser(undefined);
+    setSelectedUser("cut");
     if (value === "cut") {
       dispatch(filterByCategory(""));
     } else {

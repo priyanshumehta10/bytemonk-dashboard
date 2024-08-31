@@ -15,8 +15,8 @@ const PieChartView = () => {
     (state) => state.breaches
   );
   const [useFilteredData, setUseFilteredData] = useState(true);
-  const [selectedUser, setSelectedUser] = useState("cut");
-  const [selectedCategory, setSelectedCategory] = useState("cut");
+  const [selectedUser, setSelectedUser] = useState(undefined);
+  const [selectedCategory, setSelectedCategory] = useState(undefined);
 
   useEffect(() => {
     dispatch(fetchDataRequest());
