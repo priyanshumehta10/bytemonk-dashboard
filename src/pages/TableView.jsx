@@ -90,7 +90,7 @@ const TableView = () => {
           <Spin size="large" />
         </div>
       ) : (
-        <div className="overflow-x-auto overflow-y-auto">
+        <div className="overflow-x-auto">
           <Table
             dataSource={currentData}
             columns={columns}
@@ -99,7 +99,12 @@ const TableView = () => {
             bordered
             size="middle"
             className="w-full"
-            pagination={{ pageSize: 13 }}
+            pagination={{
+              pageSize: 13,
+              showSizeChanger: false,
+              position: ["bottomCenter"], // Ensure pagination is centered
+              size: "medium", // Adjust size for better fit
+            }}
           />
         </div>
       )}
