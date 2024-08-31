@@ -62,22 +62,26 @@ const TableView = () => {
     <div className="p-5 bg-gray-100">
       {/* Filter Section */}
       <div className="mb-4 flex flex-wrap justify-between gap-4">
-        <DropdownFilter
-          options={users}
-          onChange={handleUserFilter}
-          placeholder="Filter by User"
-          includeCut={true}
-          value={selectedUser}
-          className="w-full md:w-auto"
-        />
-        <DropdownFilter
-          options={categories}
-          onChange={handleCategoryFilter}
-          placeholder="Filter by Category"
-          includeCut={true}
-          value={selectedCategory}
-          className="w-full md:w-auto"
-        />
+        <div className="flex flex-col w-full md:w-auto">
+          <label className="mb-2 text-sm font-medium">Filter by User</label>
+          <DropdownFilter
+            options={users}
+            onChange={handleUserFilter}
+            placeholder="Select User"
+            includeCut={true}
+            value={selectedUser}
+          />
+        </div>
+        <div className="flex flex-col w-full md:w-auto">
+          <label className="mb-2 text-sm font-medium">Filter by Category</label>
+          <DropdownFilter
+            options={categories}
+            onChange={handleCategoryFilter}
+            placeholder="Select Category"
+            includeCut={true}
+            value={selectedCategory}
+          />
+        </div>
       </div>
 
       {/* Loading Spinner */}

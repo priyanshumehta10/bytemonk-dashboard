@@ -24,7 +24,7 @@ const PieChartView = () => {
 
   const handleUserFilter = (value) => {
     setSelectedUser(value);
-    setSelectedCategory(undefined);
+    setSelectedCategory("cut");
     if (value === "cut") {
       setUseFilteredData(false);
       dispatch(filterByUser(""));
@@ -36,7 +36,7 @@ const PieChartView = () => {
 
   const handleCategoryFilter = (value) => {
     setSelectedCategory(value);
-    setSelectedUser(undefined);
+    setSelectedUser("cut");
     if (value === "cut") {
       setUseFilteredData(false);
       dispatch(filterByCategory(""));
@@ -90,29 +90,37 @@ const PieChartView = () => {
   };
 
   return (
-    <div className="p-4  md:p-5 bg-gray-100">
+    <div className="p-4 md:p-5 bg-gray-100">
       {/* Filter Section */}
       <Card
         className="mb-5 p-4 rounded-lg bg-white shadow-md"
         bodyStyle={{ padding: "20px" }}
       >
         <div className="flex flex-col md:flex-row justify-between gap-4 mb-5">
-          <DropdownFilter
-            options={users}
-            onChange={handleUserFilter}
-            placeholder="Filter by User"
-            includeCut={true}
-            className="w-full md:w-auto"
-            value={selectedUser}
-          />
-          <DropdownFilter
-            options={categories}
-            onChange={handleCategoryFilter}
-            placeholder="Filter by Category"
-            includeCut={true}
-            className="w-full md:w-auto"
-            value={selectedCategory}
-          />
+          <div className="flex flex-col w-full md:w-auto">
+            <label className="mb-2 text-sm font-medium">Filter by User</label>
+            <DropdownFilter
+              options={users}
+              onChange={handleUserFilter}
+              placeholder="Select User"
+              includeCut={true}
+              value={selectedUser}
+              className="w-full md:w-auto"
+            />
+          </div>
+          <div className="flex flex-col w-full md:w-auto">
+            <label className="mb-2 text-sm font-medium">
+              Filter by Category
+            </label>
+            <DropdownFilter
+              options={categories}
+              onChange={handleCategoryFilter}
+              placeholder="Select Category"
+              includeCut={true}
+              value={selectedCategory}
+              className="w-full md:w-auto"
+            />
+          </div>
         </div>
       </Card>
       {loading ? (
@@ -120,7 +128,7 @@ const PieChartView = () => {
           <Spin size="large" />
         </div>
       ) : (
-        <div className="flex flex-col md:flex-row gap-6 justify-center  overflow-hidden">
+        <div className="flex flex-col md:flex-row gap-6 justify-center overflow-hidden">
           <div className="flex flex-col w-full md:w-1/2 lg:w-1/2 overflow-hidden">
             <Card
               title="Breaches by Category"
