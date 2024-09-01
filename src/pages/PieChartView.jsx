@@ -74,7 +74,6 @@ const PieChartView = () => {
         fontWeight: "bold",
         textAlign: "center",
       },
-      offset: 100,
     },
     legend: {
       color: {
@@ -83,12 +82,14 @@ const PieChartView = () => {
         rowPadding: 5,
       },
     },
+    height: 250,
+    width: 350,
     responsive: true,
     radius: 0.8,
   };
 
   return (
-    <div className="p-4 md:p-5 bg-gray-100">
+    <div className="p-4 md:w-[80%] md:p-5 bg-gray-100">
       {loading ? (
         <div className="flex justify-center items-center h-60">
           <Spin size="large" />
