@@ -92,12 +92,10 @@ const PieChartView = () => {
   return (
     <div className="p-4 md:p-5 bg-gray-100">
     {/* Filter Section */}
-    <Card
-      className="mb-5 p-7 rounded-lg bg-white shadow-md"
-      bodyStyle={{ padding: "20px" }}
-    >
-      <div className="absolute top-0 left-0 right-0 flex flex-row md:justify-between  md:gap-4 p-4">
-        <div className="flex flex-col w-[40%] ml-4 mr-9">
+    <Card className="mb-5 md:p-7 rounded-lg bg-white shadow-md" bodyStyle={{ padding: "20px" }}>
+      <div className="flex flex-row md:justify-between gap-4 p-4">
+        {/* User Filter */}
+        <div className="flex flex-col w-full md:w-[45%] ml-0 md:ml-4">
           <label className="mb-2 text-sm font-medium">Filter by User</label>
           <DropdownFilter
             options={users}
@@ -108,10 +106,9 @@ const PieChartView = () => {
             className="w-full"
           />
         </div>
-        <div className="flex flex-col w-[40%] md:w-auto">
-          <label className="mb-2 text-sm font-medium">
-            Filter by Category
-          </label>
+        {/* Category Filter */}
+        <div className="flex flex-col w-full md:w-[45%] ml-0 md:ml-4">
+          <label className="mb-2 text-sm font-medium">Filter by Category</label>
           <DropdownFilter
             options={categories}
             onChange={handleCategoryFilter}
@@ -154,6 +151,7 @@ const PieChartView = () => {
       </div>
     )}
   </div>
-);
-};
-export default PieChartView;
+  );
+  };
+  export default PieChartView;
+  

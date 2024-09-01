@@ -14,8 +14,9 @@ const DropdownFilter = ({
     <Select
       placeholder={placeholder}
       onChange={onChange}
-      style={{ width: "180px" }}
       value={value}
+      className="w-full md:w-auto" // Use Tailwind classes for responsiveness
+      dropdownStyle={{ minWidth: "180px" }} // Ensure a minimum width for the dropdown
     >
       {includeCut && <Option value="cut">All</Option>}
       {options.map((option) => (
