@@ -83,19 +83,19 @@ const PieChartView = () => {
       },
     },
     height: 250,
-    width: 350,
+    width: 300,
     responsive: true,
     radius: 0.8,
   };
 
   return (
-    <div className="p-4 md:w-[80%] md:p-5 bg-gray-100">
+    <div className="p-4 w-[100%] md:p-5 bg-gray-100">
       {loading ? (
         <div className="flex justify-center items-center h-60">
           <Spin size="large" />
         </div>
       ) : (
-        <div className="flex flex-col md:flex-row gap-6">
+        <div className=" flex flex-col md:flex-row gap-6">
           <Card
             title="Breaches by Category"
             className="flex-1 bg-white shadow-md rounded-lg"
@@ -104,7 +104,7 @@ const PieChartView = () => {
           >
             <div className="flex flex-col gap-4 mb-6">
               <div className="flex flex-col mb-4">
-                <label className="mb-2 text-sm font-medium text-gray-700">
+                <label className="mb-2  text-sm font-medium text-gray-700">
                   Filter by User
                 </label>
                 <DropdownFilter
@@ -113,7 +113,7 @@ const PieChartView = () => {
                   placeholder="Select User"
                   includeCut={true}
                   value={selectedUser}
-                  className="w-full p-2 border border-gray-300 rounded-lg shadow-sm hover:border-gray-400 focus:outline-none focus:ring focus:ring-blue-300 transition duration-200 ease-in-out"
+                  className="w-full p-2 pl-8 border border-gray-300 rounded-lg shadow-sm hover:border-gray-400 focus:outline-none focus:ring focus:ring-blue-300 transition duration-200 ease-in-out"
                 />
               </div>
               <div className="flex justify-center items-center">
