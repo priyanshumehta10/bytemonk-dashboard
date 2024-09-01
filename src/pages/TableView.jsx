@@ -59,38 +59,43 @@ const TableView = () => {
   ];
 
   return (
-    <div className="p-5 bg-gray-100 relative">
-      {/* Filter Section */}
-      <div className="absolute top-0 left-0 right-0 flex flex-row md:justify-between  md:gap-4 p-4">
-        <div className="flex flex-col w-[40%] mr-9">
-          <label className="mb-2 text-sm font-medium">Filter by User</label>
+    <div className="p-5 bg-gray-100 min-h-screen relative">
+      <div className="relative flex flex-col md:flex-row md:justify-between md:gap-4 p-4 bg-white shadow-md rounded-lg z-10 mb-4">
+        <div className="flex flex-col w-full md:w-[40%] mb-4 md:mb-0">
+          <label className="mb-2 text-sm font-medium text-gray-700">
+            Filter by User
+          </label>
           <DropdownFilter
             options={users}
             onChange={handleUserFilter}
             placeholder="Select User"
             includeCut={true}
             value={selectedUser}
+            className="w-full p-2 border border-gray-300 rounded-lg shadow-sm hover:border-gray-400 focus:outline-none focus:ring focus:ring-blue-300 transition duration-200 ease-in-out"
+            aria-label="Filter by User"
           />
         </div>
-        <div className="flex flex-col w-[40%] md:w-auto ">
-          <label className="mb-2 text-sm font-medium">Filter by Category</label>
+        <div className="flex flex-col w-full md:w-[40%]">
+          <label className="mb-2 text-sm font-medium text-gray-700">
+            Filter by Category
+          </label>
           <DropdownFilter
             options={categories}
             onChange={handleCategoryFilter}
             placeholder="Select Category"
             includeCut={true}
             value={selectedCategory}
+            className="w-full p-2 border border-gray-300 rounded-lg shadow-sm hover:border-gray-400 focus:outline-none focus:ring focus:ring-blue-300 transition duration-200 ease-in-out"
+            aria-label="Filter by Category"
           />
         </div>
       </div>
-
-      {/* Loading Spinner */}
       {loading ? (
         <div className="flex justify-center items-center h-60 mt-20">
           <Spin size="large" />
         </div>
       ) : (
-        <div className="overflow-x-auto mt-20">
+        <div className="overflow-x-auto mt-6"> {/* Ensure margin between table and filters */}
           <Table
             dataSource={currentData}
             columns={columns}
@@ -100,10 +105,10 @@ const TableView = () => {
             size="middle"
             className="w-full"
             pagination={{
-              pageSize: 13,
+              pageSize: 10,
               showSizeChanger: false,
-              position: ["bottomCenter"], // Ensure pagination is centered
-              size: "medium", // Adjust size for better fit
+              position: ["bottomCenter"],
+              size: "medium",
             }}
           />
         </div>
